@@ -55,6 +55,9 @@ nueve.onclick = function(e){
         resultado.textContent = resultado.textContent + "9";
 }
 cero.onclick = function(e){
+        if(resultado.textContent==="0"){
+                return;
+        }
         resultado.textContent = resultado.textContent + "0";
 }
 reset.onclick = function(e){
@@ -83,12 +86,14 @@ multiplicacion.onclick = function(e){
 }
 
 division.onclick = function(e){
+
         operandoa = resultado.textContent;
         operacion = "/";
         limpiar();
 }
 
 igual.onclick=function(e){
+
         operandob = resultado.textContent;
         resolver();
 }
@@ -119,6 +124,10 @@ function resolver(){
                 break;
 
                 case "/":
+                        if (parseFloat(operandob)===0){
+                                alert("valor no valido en la división")
+                                break
+                        }
                 res = parseFloat(operandoa) / parseFloat(operandob);
                 break;
         }
